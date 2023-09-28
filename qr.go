@@ -10,7 +10,6 @@ import (
 )
 
 func main() {
-	// Sunucu IP adresini alın
 	ip := getLocalIP()
 
 	// Yönlendirilecek URL'i belirtin
