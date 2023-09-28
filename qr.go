@@ -12,7 +12,6 @@ import (
 func main() {
 	ip := getLocalIP()
 
-	// Yönlendirilecek URL'i belirtin
 	url := fmt.Sprintf("http://%s:8080", ip)
 
 	// QR kodu oluşturun
@@ -22,7 +21,6 @@ func main() {
 		os.Exit(1)
 	}
 
-	// QR kodu görüntüleyin (opsiyonel)
 	fmt.Println(qr.ToSmallString(false))
 
 	// QR kodu bir dosyaya kaydedin
@@ -34,7 +32,7 @@ func main() {
 
 	fmt.Printf("QR code created and saved in file named 'QRcode.png'.\n")
 
-	// 8080 portunda basit bir HTTP sunucusu başlatın
+	
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprintln(w, "Hello, you are on port 8080")
 	})
@@ -49,7 +47,6 @@ func main() {
 	select {}
 }
 
-// Sunucunun yerel IP adresini alır
 func getLocalIP() string {
 	conn, err := net.Dial("udp", "8.8.8.8:80")
 	if err != nil {
