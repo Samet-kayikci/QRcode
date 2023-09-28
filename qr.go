@@ -54,7 +54,7 @@ func main() {
 func getLocalIP() string {
 	conn, err := net.Dial("udp", "8.8.8.8:80")
 	if err != nil {
-		fmt.Println("IP adresini alma hatası:", err)
+		fmt.Println("IP error:", err)
 		os.Exit(1)
 	}
 	defer conn.Close()
